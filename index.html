@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sıralama ve Rastgele Sayı Seçme</title>
+    <style>
+        body{
+            margin: 50px 50px 0 100px;
+          }
+    </style>
+</head>
+<body>
+    <p>1'den 99'a kadar olan sayıları for döngüsü ile yan yana <button onclick="siralamaYap()"  id="sirala" name="siralaButton">Sırala</button></p>
+    <br>
+    <button onclick="rastgeleSayiUret()"   id="randomSayi"name="randomSayi" disabled>Rastgele Sayı Seç</button><br><br>
+        <p id="satir1"></p>
+        <p id="satir2"></p>
+        <p id="satir3"></p>
+        <p id="satir4"></p>
+        <p id="satir5"></p>
+        <p id="satir6"></p>
+        <p id="satir7"></p>
+        <p id="satir8"></p>
+        <p id="satir9"></p>
+        <p id="satir10"></p>
+    <script>        
+            let siralaButton= document.getElementById("sirala");
+            let randomSayiButton= document.getElementById("randomSayi");
+            let satir1= document.getElementById("satir1");
+            let satir2= document.getElementById("satir2");
+            let satir3= document.getElementById("satir3");
+            let satir4= document.getElementById("satir4");
+            let satir5= document.getElementById("satir5");
+            let satir6= document.getElementById("satir6");
+            let satir7= document.getElementById("satir7");
+            let satir8= document.getElementById("satir8");
+            let satir9= document.getElementById("satir9");
+            let satir10= document.getElementById("satir10");
+            let sayilar=[];
+           
+        function siralamaYap(){   
+            siralaButton.disabled=true;
+            randomSayiButton.disabled=false;      
+            for(let i=1;i<100;i++){
+              sayilar.push("<span id="+i+">" + i + "</span>");
+            }      
+                satir1.innerHTML=sayilar.slice(0,10).join(" ");
+                satir2.innerHTML=sayilar.slice(10,20).join(" ");   
+                satir3.innerHTML=sayilar.slice(20,30).join(" ");   
+                satir4.innerHTML=sayilar.slice(30,40).join(" ");   
+                satir5.innerHTML=sayilar.slice(40,50).join(" ");   
+                satir6.innerHTML=sayilar.slice(50,60).join(" ");   
+                satir7.innerHTML=sayilar.slice(60,70).join(" ");   
+                satir8.innerHTML=sayilar.slice(70,80).join(" ");     
+                satir9.innerHTML=sayilar.slice(80,90).join(" ");  
+                satir10.innerHTML=sayilar.slice(90,99).join(" ");                      
+        }
+        function rastgeleSayiUret(){
+            let rastgeleSayi=Math.floor(Math.random()*100+1);
+            let secilenSayi=sayilar.findIndex((x)=>x.includes(rastgeleSayi))+1; 
+            document.getElementById(secilenSayi).style.color="red";
+            document.getElementById(secilenSayi).style.fontWeight="bold";
+     }
+    
+    </script>
+</body>
+</html>
